@@ -1,0 +1,81 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Reimbursement Record System</h2>
+    </div>
+    </nav>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Reimbursement Record Management</h1>
+            <p class="col-md-8 fs-4"></p>
+        </div>
+    </div>
+    <h2>List of Reimbursements</h2>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Reimbursement ID</th>
+                <th>Employee Id</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Manager Id</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reimbursement of allReimbursements">
+            <td>{{ reimbursement.reimbursementId }}</td>
+            <td>{{ reimbursement.requesterId}}</td>
+            <td>{{ reimbursement.reimbursementAmount}}</td>
+            <td>{{ reimbursement.date }}</td>
+            <td>{{ reimbursement.Certification | uppercase}}</td>
+            <td>{{ reimbursement.resolverId }}</td>
+            <td>{{ reimbursement.status }}</td>
+                <td>
+                    <button class="btn btn-info"data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Reimbursement</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">requesterId</label>
+                  <input type="text" formControlName="requester" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Reimbursement Amount</label>
+                    <input type="text" formControlName="amount" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Date</label>
+                    <input type="text" formControlName="date"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Description</label>
+                    <input type="text" formControlName="description"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Resolver</label>
+                    <input type="text" formControlName="resolverId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Status</label>
+                    <input type="text" formControlName="status" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,92 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Reimbursement Record System</h2>
+        <div class="d-flex">
+            <button
+            type="button"
+            class="btn btn-success bm-5"
+            (click)="toggleAdd()">
+            Add a New Reimbursement
+        </button>  
+        </div>
+    </div>
+    </nav>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Webwaire Reimbursement Management</h1>
+            <p class="col-md-8 fs-4"></p>
+        </div>
+    </div>
+<div class="container">
+    <div *ngIf="flag" >
+        <form #addForm="ngForm" class="form-inline tm-5" (submit)="addReimbursement()">
+            <label for="author" class="mb-2 mr-sm-2">EmployeeId:</label>
+            <input
+                type="text"
+                class="form-control mb-2 mr-sm-2"
+                id="author"
+                placeholder="Enter Employee ID"
+                name="author"
+                required
+                #rAuthor="ngModel"
+                [(ngModel)]="newReimbursement.requesterId">
+                <span
+                    *ngIf="rAuthor.invalid && rAuthor.touched"
+                    class="text-danger small">Employee Id required!</span>
+           <label for="amount" class="mb-2 mr-sm-2">Amount:</label>
+            <input
+                type="text"
+                class="form-control mb-2 mr-sm-2"
+                id="amount"
+                placeholder="Enter Reimbursement Amount"
+                name="Amount"
+                required
+                #rAmount="ngModel"
+                [(ngModel)]="newReimbursement.reimbursementAmount">
+                <span *ngIf="rAmount.invalid && rAmount.touched" class="text-danger small">Reimbursement Amount required!</span>
+            <label for="date" class="mb-2 mr-sm-2">Date:</label>
+            <input
+                type="text"
+                class="form-control mb-2 mr-sm-2"
+                id="dateSubmitted"
+                placeholder="Enter Date Submitted"
+                name="dateSubmitted"
+                required
+                #rDate="ngModel"
+                [(ngModel)]="newReimbursement.date">
+                <span *ngIf="rDate.invalid && rDate.touched" class="text-danger small">Date required!</span>
+            <label for="description" class="mb-2 mr-sm-2">Description:</label>
+            <input
+                type="text"
+                class="form-control mb-2 mr-sm-2"
+                id="description"
+                placeholder="Enter Description"
+                name="Description"
+                required
+                #rDescription="ngModel"
+                [(ngModel)]="newReimbursement.Certification">
+                <label for="resolver" class="mb-2 mr-sm-2">Manager Id</label>
+                <input
+                    type="text"
+                    class="form-control mb-2 mr-sm-2"
+                    id="resolver"
+                    placeholder="Enter Manager Id"
+                    name="Resolver"
+                    required
+                    #rResolver="ngModel"
+                    [(ngModel)]="newReimbursement.resolverId">
+                    <span *ngIf="rResolver.invalid && rResolver.touched" class="text-danger small">Manager Id required!</span>
+                    <label for="status" class="mb-2 mr-sm-2">Status</label>
+                    <input
+                        type="text"
+                        class="form-control mb-2 mr-sm-2"
+                        id="status"
+                        placeholder="Status"
+                        name="Status"
+                        required
+                        #rStatus="ngModel"
+                        [(ngModel)]="newReimbursement.status">
+                        <span *ngIf="rStatus.invalid && rStatus.touched" class="text-danger small">Status required!</span>
+          </form>  
+    </div>
+  </div>
